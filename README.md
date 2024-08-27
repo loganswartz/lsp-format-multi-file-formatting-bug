@@ -7,17 +7,17 @@ file.
 ## How to Reproduce
 
 Clone this repo, and open Neovim with the included vimrc (`nvim -u vimrc.lua`).
-Then, do `:ReproduceBug`. That command just runs the following commands with
-consistent timing:
+Restart Neovim with the same command (so that all plugins are loaded properly),
+then do `:ReproduceBug`. If it works properly, you should be looking at the
+buffer for `a.lua`, but see it filled with the content from `b.lua`.
+
+That command just runs the following commands with consistent timing:
 
 1. `:e a.lua`
 2. `:w`
 3. `:e b.lua`
 4. `:w`
 5. `:e a.lua`
-
-Sometimes it doesn't work for me until after restarting Neovim once after the
-lazy.nvim installs.
 
 It seems like this is caused by some sort of interference of lua_ls (or any LSP)
 with null-ls/none-ls, combined with system load and/or a race condition of some

@@ -3,11 +3,11 @@
 local M = {}
 
 function M.A()
-    print("A")
+    print("Hello from A")
 end
 
-function M.C()
-    print("C")
+function M.A2()
+    print("Another func in A")
 end
 
 return M
